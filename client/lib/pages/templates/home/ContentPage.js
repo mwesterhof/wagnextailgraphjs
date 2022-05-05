@@ -10,6 +10,8 @@ const ContentPage = (props) => {
             <p>ContentPage</p>
 
             {body.map(child => renderBlock(child)) }
+            <hr /> <hr /> <hr />
+            {footerContent.map(child => renderBlock(child)) }
         </>
     )
 }

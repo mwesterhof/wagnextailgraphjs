@@ -21,10 +21,12 @@ const PAGE = gql`
 
   fragment ContentPage on ContentPage {
     body {
+      id
       blockType
       ...ParagraphBlock
     }
     footerContent {
+      id
       blockType
       ...ParagraphBlock
     }

@@ -1,6 +1,13 @@
-const ParagraphBlock = () => {
+import classes from './ParagraphBlock.module.sass'
+
+
+const ParagraphBlock = (data) => {
+    const { title, text } = data
     return (
-        <h2>paragraph block</h2>
+        <div className={classes.ParagraphBlock}>
+            <h2>{ title }</h2>
+            <p>{ text }</p>
+        </div>
     )
 }
 
