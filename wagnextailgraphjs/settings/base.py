@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "grapple",
     "graphene_django",
     "django_extensions",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
