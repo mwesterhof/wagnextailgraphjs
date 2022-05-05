@@ -10,20 +10,26 @@ const PAGE = gql`
       ...ContentPage
     }
   }
+
   fragment HomePage on HomePage {
     content {
+      blockType
       ...HeroImageBlock
       ...ParagraphBlock
     }
   }
+
   fragment ContentPage on ContentPage {
     body {
+      blockType
       ...ParagraphBlock
     }
     footerContent {
+      blockType
       ...ParagraphBlock
     }
   }
+
   fragment HeroImageBlock on HeroImageBlock {
     image {
       title
@@ -32,6 +38,7 @@ const PAGE = gql`
       }
     }
   }
+
   fragment ParagraphBlock on ParagraphBlock {
     title
     text

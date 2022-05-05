@@ -1,4 +1,4 @@
-import { getPageData, getTemplate } from '../lib/pages/loader'
+import { getPageData, getPages, getTemplate } from '../../lib/pages/loader'
 
 
 const getStaticProps = async(context) => {
@@ -17,9 +17,18 @@ const getStaticProps = async(context) => {
 export { getStaticProps }
 
 const getStaticPaths = async() => {
+    const pages = await getPages()
+    const urlSegments = pages.map(page => page.urlPath.split('/').filter(element => element != ''))
+    const paths = urlSegments.map(fullLine => {
+        const line = fullLine.filter((element, i) => i != 0)
+        return {
+            params: {slug: line}
+        }
+    })
+
     return {
-        paths: [],
-        fallback: true
+        paths: paths.filter(path => path.params.slug),
+        fallback: false
     }
 }
 
@@ -27,19 +36,16 @@ export { getStaticPaths }
 
 const WagtailBasedPage = (props) => {
     const { urlPath, pageData } = props
+    console.log(urlPath)
     if (!pageData) {
-        return <p>Loading.../</p>
+        return <p>Loading...</p>
     }
 
     const { title, contentType } = pageData
     const Template = getTemplate(contentType)
 
     return (
-        <>
-            <h1>{title}</h1>
-            <p>foo: {urlPath}</p>
-            <Template pageData={pageData} />
-        </>
+        <Template pageData={pageData} />
     )
 }
 
