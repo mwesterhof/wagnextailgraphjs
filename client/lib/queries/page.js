@@ -13,6 +13,7 @@ const PAGE = gql`
 
   fragment HomePage on HomePage {
     content {
+      id
       blockType
       ...HeroImageBlock
       ...ParagraphBlock

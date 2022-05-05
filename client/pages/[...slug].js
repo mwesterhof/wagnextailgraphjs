@@ -45,7 +45,7 @@ const WagtailBasedPage = (props) => {
     const Template = getTemplate(contentType)
 
     return (
-        <Template pageData={pageData} />
+        <Template {...pageData} />
     )
 }
 

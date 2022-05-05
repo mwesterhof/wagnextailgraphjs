@@ -1,16 +1,13 @@
 import { renderBlock } from '../../../../components/blocks/loader'
 
-const ContentPage = (props) => {
-    const { pageData } = props
-    const { body, footerContent } = pageData
-
+const ContentPage = ({title, body, footerContent}) => {
     return (
         <>
-            <h1>{pageData.title}</h1>
-            <p>ContentPage</p>
+            <h1>{title}</h1>
+            <p>(ContentPage template)</p>
 
             {body.map(child => renderBlock(child)) }
-            <hr /> <hr /> <hr />
+            <hr /> <hr />
             {footerContent.map(child => renderBlock(child)) }
         </>
     )

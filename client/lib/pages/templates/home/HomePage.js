@@ -1,6 +1,12 @@
-const HomePage = (props) => {
+import { renderBlock } from '../../../../components/blocks/loader'
+
+
+const HomePage = ({title, content}) => {
     return (
-        <h1>HomePage</h1>
+        <>
+            <h1>HomePage</h1>
+            {content.map(child => renderBlock(child))}
+        </>
     )
 }
 
