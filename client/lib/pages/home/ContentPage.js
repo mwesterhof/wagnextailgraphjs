@@ -1,4 +1,4 @@
-import { renderBlock } from '../../../../components/blocks/loader'
+import { renderBlock } from '../../componentLoader'
 
 const ContentPage = ({title, body, footerContent}) => {
     return (
