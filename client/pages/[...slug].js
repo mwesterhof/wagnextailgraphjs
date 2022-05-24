@@ -1,4 +1,5 @@
-import { getPageData, getPages, getTemplate } from '../lib/componentLoader'
+import { getPageData, getPages } from '../lib/dataLoader'
+import { getTemplate } from '../lib/componentLoader'
 
 
 const getStaticProps = async(context) => {
