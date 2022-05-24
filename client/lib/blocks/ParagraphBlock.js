@@ -7,6 +7,7 @@ const ParagraphBlock = (data) => {
         <div className={classes.ParagraphBlock}>
             <h2>{ title }</h2>
             <p>{ text }</p>
+            <p>(TODO: rich text rendering)</p>
         </div>
     )
 }

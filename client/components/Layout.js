@@ -1,4 +1,5 @@
 import classes from './Layout.module.sass'
+import Menu from './Menu'
 
 
 const Layout = (props) => {

@@ -1,16 +1,20 @@
-import { getPageData, getPages } from '../lib/dataLoader'
+import { getMenu, getPageData, getPages } from '../lib/dataLoader'
 import { getTemplate } from '../lib/componentLoader'
+import Menu from '../components/Menu'
+import Layout from '../components/Layout'
 
 
 const getStaticProps = async(context) => {
     const { slug } = context.params
     const urlPath = '/' + slug.join('/')
-    const { pageData } = await getPageData(urlPath)
+    const pageData = await getPageData(urlPath)
+    const inMenuPages = await getMenu()
 
     return {
         props: {
             urlPath: urlPath,
             pageData: pageData,
+            inMenuPages: inMenuPages
         }
     }
 }
@@ -36,8 +40,7 @@ const getStaticPaths = async() => {
 
 export { getStaticPaths }
 
-const WagtailBasedPage = (props) => {
-    const { urlPath, pageData } = props
+const WagtailBasedPage = ({urlpath, pageData, inMenuPages}) => {
     if (!pageData) {
         return <p>Loading...</p>
     }
@@ -46,7 +49,10 @@ const WagtailBasedPage = (props) => {
     const Template = getTemplate(contentType)
 
     return (
-        <Template {...pageData} />
+        <Layout>
+            <Menu inMenuPages={inMenuPages} />
+            <Template {...pageData} />
+        </Layout>
     )
 }
 

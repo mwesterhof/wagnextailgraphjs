@@ -1,5 +1,6 @@
 import { renderBlock } from '../../componentLoader'
 
+
 const ContentPage = ({title, body, footerContent}) => {
     return (
         <>
@@ -8,6 +9,7 @@ const ContentPage = ({title, body, footerContent}) => {
 
             {body.map(child => renderBlock(child)) }
             <hr /> <hr />
+            <h3>footer</h3>
             {footerContent.map(child => renderBlock(child)) }
         </>
     )

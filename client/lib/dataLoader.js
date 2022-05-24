@@ -1,6 +1,7 @@
 import { request } from 'graphql-request'
 import PAGE from './queries/page'
 import PAGES from './queries/pages'
+import MENU from './queries/menu'
 
 
 const getPageData = async(urlPath) => {
@@ -12,9 +13,7 @@ const getPageData = async(urlPath) => {
         }
     )
 
-    return {
-        pageData: data.page
-    }
+    return data.page
 }
 
 export { getPageData }
@@ -30,3 +29,15 @@ const getPages = async() => {
 }
 
 export { getPages }
+
+
+const getMenu = async() => {
+    const data = await request(
+        "http://localhost:8000/graphql/",
+        MENU
+    )
+
+    return data.inMenuPages
+}
+
+export { getMenu }
