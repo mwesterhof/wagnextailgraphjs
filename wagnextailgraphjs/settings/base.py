@@ -55,6 +55,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -178,3 +179,7 @@ GRAPPLE = {
     "APPS": ["home"],
     "EXPOSE_GRAPHIQL": True
 }
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+]

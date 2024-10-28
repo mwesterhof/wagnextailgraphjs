@@ -1,4 +1,4 @@
-import { request } from 'graphql-request'
+import { request, gql } from 'graphql-request'
 import PAGE from './queries/page'
 import PAGES from './queries/pages'
 import MENU from './queries/menu'
@@ -27,6 +27,7 @@ const getPages = async() => {
 
     return data.pages
 }
+
 
 export { getPages }
 
